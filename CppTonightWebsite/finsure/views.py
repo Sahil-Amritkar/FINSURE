@@ -46,6 +46,36 @@ def check_password_xyz(pan, entered_password):
     return False
 
 
+def otp_generate(request):
+    digits = "0123456789"
+    OTP = ""
+    for i in range(4):
+        OTP += digits[math.floor(random.random() * 10)]
+    OTP = str(4578)
+    return OTP
+
+
+def send_email(request):
+    smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.login('<gmail id>', '<gmail password>')
+    msg = '<p>Your OTP is <strong>'+o+'</strong></p>'
+    server.sendmail('<gmail id>', email, msg)
+    server.quit()
+    return HttpResponse(o)
+
+
+def send_otp(request):
+    email = request.GET.get("email")
+    o = otp_generate()
+    htmlgen = '<p>Your OTP is <strong>'+o+'</strong></p>'
+    print(send_mail('OTP', htmlgen, '<gmail id>',
+          [email], fail_silently=False))
+    print(o)
+    return HttpResponse(o)
+
+
 
 
 ######FUNCTIONS####
@@ -89,33 +119,4 @@ def xyz_rejected(request):
     return render(request, 'xyz_rejected.html', {})
 
 
-def otp_generate(request):
-    digits = "0123456789"
-    OTP = ""
-    for i in range(4):
-        OTP += digits[math.floor(random.random() * 10)]
-    OTP = str(4578)
-    return OTP
-
-
-
-def send_email(request):
-    smtplib.SMTP('smtp.gmail.com', 587)
-    server.ehlo()
-    server.starttls()
-    server.login('<gmail id>', '<gmail password>')
-    msg = '<p>Your OTP is <strong>'+o+'</strong></p>'
-    server.sendmail('<gmail id>', email, msg)
-    server.quit()
-    return HttpResponse(o)
-
-
-def send_otp(request):
-    email = request.GET.get("email")
-    o = otp_generate()
-    htmlgen = '<p>Your OTP is <strong>'+o+'</strong></p>'
-    print(send_mail('OTP', htmlgen, '<gmail id>',
-          [email], fail_silently=False))
-    print(o)
-    return HttpResponse(o)
 
