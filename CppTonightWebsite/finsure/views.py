@@ -50,6 +50,8 @@ def finsure_login(request):
         return render(request, 'finsure_finances.html', {})
     else:
         pass
+        #return redirect('finsure_login')
+
         #return to this page
     return render(request, 'finsure_login.html', {})
 
