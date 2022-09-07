@@ -28,6 +28,7 @@ def check_password(pan, entered_password):
 
 ###
 def finsure_login(request):
+    result=0
     result=check_password(request.GET['your_PAN'], request.GET['your_password'])
     print(result)
     if result==True:

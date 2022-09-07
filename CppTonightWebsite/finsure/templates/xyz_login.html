@@ -1,0 +1,113 @@
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;1,100;1,400&display=swap");
+    * {
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    font-family: "Montserrat", sans-serif;
+    }
+    .finsure{
+        height: 100px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #29a49c;
+    color: white;
+    box-shadow: 0 0 20px rgba(97, 96, 96, 0.589);
+    }
+    .finsure-heading{
+        text-align: center;
+        width: 60%;
+        /* border-bottom: white solid 2px; */
+
+    }
+    .finsure-tagline{
+        color: #494949;
+
+    }
+
+    .cont{
+        width: 100%;
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .container{
+        display: flex;
+        height: fit-content;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* height: 100vh; */
+        background-color: #ffffff;
+        border-radius: 2px;
+        padding: 50px;
+        box-shadow: 0 0 10px rgba(136, 136, 136, 0.589);
+    /* backdrop-filter: blur(20px); */
+}
+.input-format{
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 2px rgb(158, 158, 158);
+}
+
+.input-format:focus{
+    border-bottom: solid 2px #29a49c;
+}
+
+.button-bt{
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+    border-radius: 20px;
+    /* background: rgb(200,255,171); */
+    border: none;
+    /* color:#2F4858; */
+    transition: transform .2s;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    background: #29a49c;
+    border: solid 2px white;
+    font-weight: bold;
+}
+.button-bt:hover{
+    border: solid 2px #29a49c;
+    background: white;
+    color: #29a49c;
+}
+.container label{
+    text-align: left;
+    margin-bottom: 20px;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+.heading-login{
+    font-size: larger;
+}
+</style>
+<div class="finsure">
+    <h1 class="finsure-heading">
+        FINSURE
+    </h1>
+    <h2 class="finsure-tagline">
+        Keeping Your Finances Secure
+    </h2>
+</div>
+<div class="cont">
+    <form action = "" method = "get" class="container">
+        <i class="fa-regular fa-user"></i>
+        <label for="login" class="heading-login">Login to your account </label>
+        <input class="input-format" id="your_PAN" type="text" name="your_PAN" placeholder="Enter pan id">
+        <!-- <label for="your_password">Enter Your Password: </label> -->
+        <input class="input-format" id="your_password" type="text" name="your_password" placeholder="Enter password">
+        <input type="submit" value="OK" class="button-bt">
+    </form>
+</div>
