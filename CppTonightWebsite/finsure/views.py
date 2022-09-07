@@ -55,11 +55,14 @@ def finsure_login(request):
         #return to this page
     return render(request, 'finsure_login.html', {})
 
+
 def finsure_finances(request):
     return render(request, 'finsure_finances.html', {})
 
+
 def finsure_otp(request):
     return render(request, 'finsure_otp.html', {})
+
 
 def xyz_login(request):
     result=0
@@ -72,11 +75,14 @@ def xyz_login(request):
         #return to this page
     return render(request, 'xyz_login.html', {})
 
+
 def xyz_loan(request):
     return render(request, 'xyz_loan.html', {})
 
+
 def xyz_accepted(request):
-    return render(request, 'xyz_accepted.html', {})
+    return render(request, 'finsure_login.html', {})
+
 
 def xyz_rejected(request):
     return render(request, 'xyz_rejected.html', {})
