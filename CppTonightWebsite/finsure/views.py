@@ -5,7 +5,8 @@ import csv
 def check_password(pan, entered_password):
     hashed_password=hashlib.md5(entered_password.encode()).hexdigest()
     #database_password="dc4f69afa57999393ff0988bbdff1181" #use django to find 
-    file = open('/Users/sahilamritkar/Sahil Codes/Hackathons/Qubit_24hr_Hackathon/FINSURE/CppTonightWebsite/finsure/AAF_Database.csv')
+    file = open(
+        '/Users/abdul/Desktop/Programming/FINSURE/CppTonightWebsite/finsure/AAF_Database.csv')
     csvreader = csv.reader(file)
     header = next(csvreader)
     rows = []
@@ -32,9 +33,11 @@ def finsure_login(request):
     result=check_password(request.GET['your_PAN'], request.GET['your_password'])
     print(result)
     if result==True:
-        pass
+        return render(request, 'finsure_finances.html', {})
     else:
         pass
+        #return redirect('finsure_login')
+
         #return to this page
     return render(request, 'finsure_login.html', {})
 
