@@ -1,10 +1,17 @@
+import email
+from http import server
+import math
+import random
+import smtplib
+from django.core.mail import send_mail
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 import hashlib
 import csv
 
 def check_password_aaf(pan, entered_password):
     hashed_password=hashlib.md5(entered_password.encode()).hexdigest()
-    file = open('/Users/sahilamritkar/Sahil Codes/Hackathons/Qubit_24hr_Hackathon/FINSURE/CppTonightWebsite/finsure/AAF_Database.csv')
+    file = open('../CppTonightWebsite/finsure/AAF_Database.csv')
     csvreader = csv.reader(file)
     header = next(csvreader)
     rows = []
@@ -22,7 +29,7 @@ def check_password_aaf(pan, entered_password):
 
 def check_password_xyz(pan, entered_password):
     hashed_password=hashlib.md5(entered_password.encode()).hexdigest()
-    file = open('/Users/sahilamritkar/Sahil Codes/Hackathons/Qubit_24hr_Hackathon/FINSURE/CppTonightWebsite/finsure/XYZ_Database.csv')
+    file = open('../CppTonightWebsite/finsure/AAF_Database.csv')
     csvreader = csv.reader(file)
     header = next(csvreader)
     rows = []
@@ -37,6 +44,36 @@ def check_password_xyz(pan, entered_password):
     if(hashed_password==db_password):
         return True
     return False
+
+
+def otp_generate(request):
+    digits = "0123456789"
+    OTP = ""
+    for i in range(4):
+        OTP += digits[math.floor(random.random() * 10)]
+    OTP = str(4578)
+    return OTP
+
+
+def send_email(request):
+    smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.login('<gmail id>', '<gmail password>')
+    msg = '<p>Your OTP is <strong>'+o+'</strong></p>'
+    server.sendmail('<gmail id>', email, msg)
+    server.quit()
+    return HttpResponse(o)
+
+
+def send_otp(request):
+    email = request.GET.get("email")
+    o = otp_generate()
+    htmlgen = '<p>Your OTP is <strong>'+o+'</strong></p>'
+    print(send_mail('OTP', htmlgen, '<gmail id>',
+          [email], fail_silently=False))
+    print(o)
+    return HttpResponse(o)
 
 
 
@@ -86,3 +123,6 @@ def xyz_accepted(request):
 
 def xyz_rejected(request):
     return render(request, 'xyz_rejected.html', {})
+
+
+
