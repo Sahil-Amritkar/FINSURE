@@ -57,6 +57,10 @@
     border-bottom: solid 2px rgb(158, 158, 158);
 }
 
+.input-format:focus{
+    border-bottom: solid 2px #29a49c;
+}
+
 .button-bt{
     margin: 10px;
     padding: 5px;
@@ -80,6 +84,13 @@
 }
 .container label{
     text-align: left;
+    margin-bottom: 20px;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+.heading-login{
+    font-size: larger;
 }
 </style>
 <div class="finsure">
@@ -92,10 +103,11 @@
 </div>
 <div class="cont">
     <form action = "" method = "get" class="container">
-        <label for="your_PAN">Enter Your Pan: </label>
-        <input class="input-format" id="your_PAN" type="text" name="your_PAN">
-        <label for="your_password">Enter Your Password: </label>
-        <input class="input-format" id="your_password" type="text" name="your_password">
+        <i class="fa-regular fa-user"></i>
+        <label for="login" class="heading-login">Login to your account </label>
+        <input class="input-format" id="your_PAN" type="text" name="your_PAN" placeholder="Enter pan id">
+        <!-- <label for="your_password">Enter Your Password: </label> -->
+        <input class="input-format" id="your_password" type="text" name="your_password" placeholder="Enter password">
         <input type="submit" value="OK" class="button-bt">
     </form>
 </div>
