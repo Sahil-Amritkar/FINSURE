@@ -39,3 +39,6 @@ def finsure_login(request):
 
 def finsure_finances(request):
     return render(request, 'finsure_finances.html', {})
+
+def finsure_otp(request):
+    return render(request, 'finsure_otp.html', {})
