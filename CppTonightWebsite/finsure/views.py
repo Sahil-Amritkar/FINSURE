@@ -11,7 +11,7 @@ import csv
 
 def check_password_aaf(pan, entered_password):
     hashed_password=hashlib.md5(entered_password.encode()).hexdigest()
-    file = open('/Users/sahilamritkar/Sahil Codes/Hackathons/Qubit_24hr_Hackathon/FINSURE/CppTonightWebsite/finsure/AAF_database.csv')
+    file = open('../CppTonightWebsite/finsure/AAF_database.csv')
     csvreader = csv.reader(file)
     header = next(csvreader)
     rows = []
@@ -29,7 +29,7 @@ def check_password_aaf(pan, entered_password):
 
 def check_password_xyz(pan, entered_password):
     hashed_password=hashlib.md5(entered_password.encode()).hexdigest()
-    file = open('/Users/sahilamritkar/Sahil Codes/Hackathons/Qubit_24hr_Hackathon/FINSURE/CppTonightWebsite/finsure/XYZ_database.csv')
+    file = open('../CppTonightWebsite/finsure/XYZ_database.csv')
     csvreader = csv.reader(file)
     header = next(csvreader)
     rows = []
@@ -82,7 +82,8 @@ def send_otp(request):
 ######FUNCTIONS####
 def finsure_login(request):
     result=0
-    result=check_password_aaf(request.GET['your_PAN'], request.GET['your_password'])
+    result = check_password_aaf(request.POST.get(
+        'your_PAN', 'VITCC0001A'), request.POST.get('your_password', 'Sahil'))
     print(result)
     if result==True:
         return render(request, 'finsure_finances.html', {})
@@ -106,12 +107,12 @@ def finsure_ticktick(request):
 
 
 def xyz_login(request):
-    result=False
-    result=check_password_xyz(request.GET['your_PAN'], request.GET['your_password'])
+    result=0
+    result = check_password_aaf(request.POST.get(
+        'your_PAN', 'VITCC0001A'), request.POST.get('your_password', 'Sahil'))
     print(result)
-    print(request.GET)
     if result==True:
-        return render(request, 'finsure_finances.html', {})
+        return render(request, 'xyz_loan.html', {})
     else:
         pass
     #return to this page
