@@ -1,0 +1,157 @@
+
+    
+    <style>
+            @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;1,100;1,400&display=swap");
+    * {
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    font-family: "Montserrat", sans-serif;
+    }
+
+    .finsure{
+        height: 100px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #29a49c;
+    color: white;
+    box-shadow: 0 0 20px rgba(97, 96, 96, 0.589);
+    }
+    .finsure-heading{
+        text-align: center;
+        width: 60%;
+        /* border-bottom: white solid 2px; */
+
+    }
+    .finsure-tagline{
+        color: #494949;
+
+    }
+    .email-box{
+        width: 100%;
+        height: calc(100%-100px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container{
+        margin-top: 100px;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+    }
+    .container{
+        display: flex;
+        height: fit-content;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* height: 100vh; */
+        background-color: #ffffff;
+        border-radius: 2px;
+        padding: 50px;
+        box-shadow: 0 0 10px rgba(136, 136, 136, 0.589);
+    /* backdrop-filter: blur(20px); */
+}
+.container input{
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 2px rgb(158, 158, 158);
+}
+
+.container button{
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+    border-radius: 20px;
+    /* background: rgb(200,255,171); */
+    border: none;
+    /* color:#2F4858; */
+    transition: transform .2s;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    background: #29a49c;
+}
+.otp-box{
+    /* width: 200px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+#otp_div label{
+    text-align: center;
+}
+#form_div{
+    display: flex;
+}
+.container h4{
+    margin-bottom:10px ;
+}
+.container span{
+    margin: 5px;
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+}
+.container span input{
+    margin: 0px;
+    padding: 0px;
+    margin-left: 10px;
+}
+#form_div div{
+    padding: 35px;
+
+}
+#form_div button{
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+    </style>
+    <div class="finsure">
+        <h1 class="finsure-heading">
+            FINSURE
+        </h1>
+        <h2 class="finsure-tagline">
+            Keeping Your Finances Secure
+        </h2>
+    </div>
+    <div id="form_div" class="email-box" >
+    
+        <div class="container">
+    
+            <h4> Pick the details you want to share </h4>  
+            <span>
+                Income: <input type="checkbox" id="check1" name="pl" value="Income"> 
+            </span>
+            <span>
+                Savings: <input type="checkbox" id="check2" name="pl" value="Savings">    
+            </span>
+            <span>
+                Investments: <input type="checkbox" id="check3" name="pl" value="Investments"> 
+            </span>
+            <span>
+        
+                Loans: <input type="checkbox" id="check4" name="pl" value="Loans"> 
+            </span>
+            <span>
+                Credit&nbsplimit: <input type="checkbox" id="check5" name="pl" value="Credit limit"> 
+            </span>
+            <span>
+                Insurance: <input type="checkbox" id="check6" name="pl" value="Insurance"> 
+            </span>
+            <button id="btn">Submit</button> 
+            <h4 style="color:green" id="result"></h4>  
+        </div>
+    </div>
+     
+</body>
+</html>

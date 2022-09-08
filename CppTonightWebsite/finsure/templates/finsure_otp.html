@@ -1,80 +1,99 @@
-<!-- opt page for finsure -->
-<!--     background-color: #29a49c; -->
-<!--     color: white; -->
-
 <style>
-    .finsure{
-        background-color: #29a49c;
-        color: white;
-        padding: 20px;
-        margin: 20px;
-        border-radius: 20px;
-        box-shadow: 0 0 10px rgba(136, 136, 136, 0.589);
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;1,100;1,400&display=swap");
+    * {
+    margin: 0px;
+    box-sizing: border-box;
+    padding: 0px;
+    font-family: "Montserrat", sans-serif;
     }
-    .finsureOtp{
-        background-color: #29a49c;
-        color: white;
-        padding: 20px;
-        margin: 20px;
-        border-radius: 20px;
-        box-shadow: 0 0 10px rgba(136, 136, 136, 0.589);
+    .finsure{
+        height: 100px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #29a49c;
+    color: white;
+    box-shadow: 0 0 20px rgba(97, 96, 96, 0.589);
     }
     .finsure-heading{
-        font-size: larger;
+        text-align: center;
+        width: 60%;
+        /* border-bottom: white solid 2px; */
+
     }
     .finsure-tagline{
-        font-size: larger;
+        color: #494949;
+
     }
+
     .cont{
-        margin: 20px;
-        padding: 20px;
-        border-radius: 20px;
+        width: 100%;
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .container{
+        display: flex;
+        height: fit-content;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* height: 100vh; */
+        background-color: #ffffff;
+        border-radius: 2px;
+        padding: 50px;
         box-shadow: 0 0 10px rgba(136, 136, 136, 0.589);
-    }
-    .input-format{
-        margin: 10px;
-        padding: 5px;
-        width: 100%;
-        background-color: transparent;
-        border: none;
-        border-bottom: solid 2px rgb(158, 158, 158);
-    }
-    .input-format:focus{
-        border-bottom: solid 2px #29a49c;
-    }
-    .button-bt{
-        margin: 10px;
-        padding: 5px;
-        width: 100%;
-        border-radius: 20px;
-        /* background: rgb(200,255,171); */
-        border: none;
-        /* color:#2F4858; */
-        transition: transform .2s;
-        font-size: 1rem;
-        font-weight: 500;
-        color: white;
-        background: #29a49c;
-        border: solid 2px white;
-        font-weight: bold;
-    }
-    .button-bt:hover{
-        border: solid 2px #29a49c;
-        background: white;
-        color: #29a49c;
-    }
-    .container label{
-        text-align: left;
-        margin-bottom: 20px;
-    }
-    textarea:focus, input:focus{
-        outline: none;
-    }
-    .heading-login{
-        font-size: larger;
-    }
+    /* backdrop-filter: blur(20px); */
+}
+.input-format{
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 2px rgb(158, 158, 158);
+}
+
+.input-format:focus{
+    border-bottom: solid 2px #29a49c;
+}
+
+.button-bt{
+    margin: 10px;
+    padding: 5px;
+    width: 100%;
+    border-radius: 20px;
+    /* background: rgb(200,255,171); */
+    border: none;
+    /* color:#2F4858; */
+    transition: transform .2s;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    background: #29a49c;
+    border: solid 2px white;
+    font-weight: bold;
+}
+.button-bt:hover{
+    border: solid 2px #29a49c;
+    background: white;
+    color: #29a49c;
+}
+.container label{
+    text-align: left;
+    margin-bottom: 20px;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+.heading-login{
+    font-size: larger;
+}
 </style>
-<div class="finsureOtp">
+<div class="finsure">
     <h1 class="finsure-heading">
         FINSURE
     </h1>
@@ -83,34 +102,13 @@
     </h2>
 </div>
 <div class="cont">
-    <!-- make a button to generate otp with the otp_generate() function-->
-    <button class="button-bt" onclick="otp_generate()">Send </button>
-        <label for="otp">Enter OTP</label>
-        <input type="text" name="otp" id="otp" class="input-format" required>
-        <input type="submit" value="Verify OTP" class="button-bt">
-</div>
-<script>
-    function otp_generate(){
-        var otp = Math.floor(Math.random() * 100000);
-        alert(otp);
-        
-    }
-
-    function verify_otp(){
-        var otp = document.getElementById("otp").value;
-        if(otp == ""){
-            alert("Please enter OTP");
-        }
-        else{
-            alert("OTP Verified");
-        }
-    }
-
-    function resend_otp(){
-        alert("OTP Resent");
-    }
-</script>
-</html>
-
-    <!-- make a button for submitting the otp -->
+    <form action = "" method = "get" class="container">
+        <label for="login" class="heading-login">XYZ is trying to access your information! </label>
+        <h5>You would have gotten the OTP in your email</h5>
+        <br>
+        <input class="input-format" id="your_PAN" type="text" name="your_PAN" placeholder="Enter OTP to allow access">
+        <h5>Choose what information you want to share on the next page</h5>
+        <br>
+        <input type="submit" value="Allow Access" class="button-bt">
     </form>
+</div>

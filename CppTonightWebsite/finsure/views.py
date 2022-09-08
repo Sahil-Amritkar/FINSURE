@@ -11,7 +11,7 @@ import csv
 
 def check_password_aaf(pan, entered_password):
     hashed_password=hashlib.md5(entered_password.encode()).hexdigest()
-    file = open('../CppTonightWebsite/finsure/AAF_Database.csv')
+    file = open('/Users/sahilamritkar/Sahil Codes/Hackathons/Qubit_24hr_Hackathon/FINSURE/CppTonightWebsite/finsure/AAF_database.csv')
     csvreader = csv.reader(file)
     header = next(csvreader)
     rows = []
@@ -29,7 +29,7 @@ def check_password_aaf(pan, entered_password):
 
 def check_password_xyz(pan, entered_password):
     hashed_password=hashlib.md5(entered_password.encode()).hexdigest()
-    file = open('../CppTonightWebsite/finsure/AAF_Database.csv')
+    file = open('/Users/sahilamritkar/Sahil Codes/Hackathons/Qubit_24hr_Hackathon/FINSURE/CppTonightWebsite/finsure/XYZ_database.csv')
     csvreader = csv.reader(file)
     header = next(csvreader)
     rows = []
@@ -62,6 +62,7 @@ def send_email(request):
     server.login('<gmail id>', '<gmail password>')
     msg = '<p>Your OTP is <strong>'+o+'</strong></p>'
     server.sendmail('<gmail id>', email, msg)
+    o=0
     server.quit()
     return HttpResponse(o)
 
@@ -88,8 +89,7 @@ def finsure_login(request):
     else:
         pass
         #return redirect('finsure_login')
-
-        #return to this page
+    #return to this page
     return render(request, 'finsure_login.html', {})
 
 
@@ -98,23 +98,30 @@ def finsure_finances(request):
 
 
 def finsure_otp(request):
-    return render(request, 'finsure_otp.html', {})
+    print(request.GET)
+    return render(request, 'finsure_ticktick.html', {})
+
+def finsure_ticktick(request):
+    return render(request, 'xyz_approved.html')
 
 
 def xyz_login(request):
-    result=0
+    result=False
     result=check_password_xyz(request.GET['your_PAN'], request.GET['your_password'])
     print(result)
+    print(request.GET)
     if result==True:
-        return render(request, 'xyz_loan.html', {})
+        return render(request, 'finsure_finances.html', {})
     else:
         pass
-        #return to this page
+    #return to this page
     return render(request, 'xyz_login.html', {})
 
 
 def xyz_loan(request):
-    return render(request, 'xyz_loan.html', {})
+    print("loan page")
+    print(request.GET)
+    return render(request, 'finsure_otp.html', {})
 
 
 def xyz_accepted(request):
