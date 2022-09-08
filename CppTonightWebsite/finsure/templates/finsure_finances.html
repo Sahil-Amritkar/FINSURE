@@ -1,1 +1,13 @@
 <h1>FINANCES</h1>
+
+<div class="finsure">
+
+    with open('minew/Users/sahilamritkar/Sahil Codes/Hackathons/Qubit_24hr_Hackathon/FINSURE/CppTonightWebsite/finsure/AAF_database.csv.csv') as csvfile:
+        reader = csv.DictReader(csvfile, delimiter='\t')
+        for row in reader:
+            print('<tr>')
+            for fn in reader.fieldnames:
+                print('<td>{}</td>'.format(row[fn]))
+            print('</tr>')
+
+</div>
